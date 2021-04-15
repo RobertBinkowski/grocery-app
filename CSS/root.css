@@ -1,0 +1,198 @@
+/*
+
+                ROOT FILE FOR A WEBSITE
+
+*/
+/*-------------------------------------------------------- ROOT*/
+:root{
+    --txt-1: white;
+    --txt-2: black;
+    
+    
+    --bg-1: #323232;
+    --bg-2: #666666;
+    
+    
+    --acc-1: #0067ff;
+    --acc-2: white;
+    
+    
+    --tr-f: .3s;
+    --tr-s: .7s;
+}
+/*-------------------------------------------------- HTML + BODY*/
+html, body{
+    font-family: 'Comfortaa', cursive;
+    font-family: 'Baloo Da 2', cursive;
+    padding: 0;
+    margin:0;
+    overflow-x: hidden;
+    color: var(--txt-1);
+    text-align: center;
+    background-color: var(--bg-1);
+}
+main{
+    padding-top: 10em;
+    min-height: 90vh;
+}
+section{
+    max-width: 1000px;
+    margin: auto;
+}
+a{
+    text-decoration: none;
+    color: var(--txt-1);
+}
+footer{
+    background:black;
+    border-top: 2px solid gray;
+    padding: 1em;
+    min-height: 10vh;
+}
+/*---------------------------------------------- SCREEN SISES*/
+/*------------------------------------------------------ BIG*/
+@media only screen and (min-width: 600px) {
+    
+    #nav svg{
+        display: none;
+    }
+    #nav ul{
+        display: flex;
+        justify-content: space-around;
+    }
+    #nav{
+        top: 1em;
+    }
+    main{
+        padding-top 10em;
+    }
+    #social svg{
+        height: 3em;
+    }
+}
+/*---------------------------------------------------- SMALL*/
+@media only screen and (max-width: 600px) {
+    #nav p{
+        display: none;
+    }
+    #nav{
+        bottom: 0;
+        width:100vw;
+    }
+    #nav svg{
+        padding: 1em;
+    }
+    #social svg{
+        height: 2.5em;
+    }
+    footer{
+        padding-bottom: 5em;
+    }
+    #social{
+        max-width: 3.5em;
+    }
+    #name{
+        display: none;
+    }
+}
+/*------------------------------------------------------- NAV*/
+#nav{
+    left: 0;
+    right: 0;
+    z-index: 1;
+    padding:0;
+    max-width: 1000px;
+    display: block;
+    margin:auto;
+    position: fixed;
+    overflow: none;
+    border-radius: 2px 2px 2px 2px;
+    background-color: var(--acc-1);
+}
+#nav ul{
+    padding:0;
+    margin:0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+#nav ul li{
+    padding: auto;
+    list-style: none;
+}
+#nav ul li a{
+    display: flex;
+    font-weight: bold;
+    padding-left:.5em;
+    padding-right:.5em;
+    overflow: hidden;
+}
+#nav ul li a svg{
+    height: 2em;
+}
+/*--------------------------------------------------- SOCIAL */
+#social{
+    position: fixed;
+    right: 0;
+    top: 30vh;
+    width: 4em;
+    overflow: none;
+    background-color: var(--acc-1);
+    border-radius: 2px 0 0 2px;
+}
+#social ul{
+    display: inline;
+    padding:0;
+    margin: 0;
+}
+#social li{
+    list-style: none;
+    padding:0;
+    margin: 0;
+}
+/*------------------------------------------------------ BUTTON */
+.button{
+    position: relative;						
+    background: none;
+    overflow: hidden;
+    cursor: pointer;
+    z-index: 0;
+}
+.button::before{
+    content:'';
+    position: absolute;						
+    bottom:0;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background: var(--acc-2);
+    z-index: -1;
+    transition: var(--tr-s);
+}
+.button:before{
+    border-radius: 20% 20% 0 0;
+}
+.button:hover::before{
+    height: 180%;
+}
+svg{
+    fill:white;
+}
+.button:hover svg,.button:hover p {
+    transition: var(--tr-s);
+    fill:black;
+    color:black;
+}
+/*--------------------------------------------------- SCROLL BAR*/
+body::-webkit-scrollbar{
+    width: .5rem;
+}
+body::-webkit-scrollbar-track{
+    background: var(--bg-1);
+    overflow: hidden;
+}
+body::-webkit-scrollbar-thumb{
+    background: var(--acc-1);
+    border-radius: 3px;
+}
