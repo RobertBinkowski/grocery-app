@@ -20,7 +20,7 @@
 
     <!-- Liblaries ------------------------------------------------------------>
     <script src='https://unpkg.com/tesseract.js@v2.1.0/dist/tesseract.min.js'></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue@next"></script>
 
     <!-- Scripts -------------------------------------------------------------->
     <script src="JS/tesseract.js"></script>
@@ -30,7 +30,7 @@
 <body>
     <!-------------------------------------Nav-->
     <!-- <?php include "PHP/nav.html"; ?> -->
-    <nav id="nav">
+    <nav id="nav"> 
         <ul>
             <li class="button" id="name">
                 <a href="home.html" target="_self">
@@ -64,7 +64,10 @@
         </ul>
     </nav>
     <div class="nav-top">
-        <h1>Spending Breakdown</h1><a href="user.html"><img src="#" alt="user"></a>
+        <h1>Spending Breakdown</h1>
+        <a href="user.html">
+            <img src="#" alt="user">
+        </a>
     </div>
     <!------------------------------------------------------------Main-->
     <main>
@@ -100,8 +103,18 @@
     <!-------------------------------Footer-->
     <!-- <?php include "PHP/footer.html"; ?> -->
     <script>
+        // const app = Vue.createApp({
+        //     data() {
+        //         return {
+        //             firstname: 'asd',
+        //         }
+        //     }
+        // })
+
+        // ap.mount('#nav')
+
         if('serverWorker' in navigator ){
-            navigator.serviceWorker.register('/sw.js')
+            navigator.serviceWorker.register('JS/service-worker.js')
         }
     </script>
 </body>

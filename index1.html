@@ -30,10 +30,10 @@
             <form method="POST">
                 <h1>Grocery Application</h1>
 
-                <label for="username">Username</label><br>
-                <input type="text" id="username" /><br>
-                <label for="password">Password</label><br>
-                <input type="password" id="password"/><br><br>
+                <label>Username</label><br>
+                <input type="text" /><br>
+                <label>Password</label><br>
+                <input type="password"/><br><br>
                 <a href="home.html"><input type="submit" value="Log in" class="button"/></a>
                 <a href="home.html"><input type="button" value="Local Account" class="button"/></a>
 
@@ -53,10 +53,17 @@
             align-content: center;
         }
     </style>
+    <!-------------------------------Footer-->
+    <!-- <?php include "PHP/footer.html"; ?> -->
+
     <!-- Liblaries ------------------------------------------------------------>
+    <script src='https://unpkg.com/tesseract.js@v2.1.0/dist/tesseract.min.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
     <script>
-        if('serviceWorker' in navigator ){
-            navigator.serviceWorker.register('/service-worker.js')
-        }
+    if('serverWorker' in navigator ){
+        navigator.serviceWorker.register('/sw.js')
+    }
     </script>
-</body></html>
+</body>
+
+</html>

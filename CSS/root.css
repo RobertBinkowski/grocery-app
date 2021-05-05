@@ -77,9 +77,12 @@ svg {
 .button:hover::before {
   height: 180%;
 }
+.button svg,
+.button a {
+  transition: var(--tr-s);
+}
 .button:hover svg,
 .button:hover a {
-  transition: var(--tr-s);
   fill: black;
   color: black;
 }
