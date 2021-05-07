@@ -52,6 +52,43 @@ footer {
 svg {
   fill: white;
 }
+/*-------------------------------------------------*/
+#receipt-div {
+  height: 25vh;
+  overflow: hidden;
+}
+#receipt-div button {
+  padding: 1em;
+  font-weight: bold;
+  border: none;
+  z-index: 1;
+}
+#receipt {
+  object-fit: cover;
+  overflow: hidden;
+  width: 100vw;
+  object-position: top;
+  height: 20vh;
+}
+#big-pic {
+  position: fixed;
+  z-index: 3;
+  overflow: hidden;
+  visibility: hidden;
+  left: 0;
+  height: 100vh;
+  top: 0;
+}
+#big-pic img {
+  height: 100%;
+  width: auto;
+  background-repeat: no-repeat;
+  background-size: auto;
+}
+/*------------------------------User*/
+#user {
+  height: 10em;
+}
 /*------------------------------------------------------ BUTTON */
 .button {
   position: relative;
@@ -59,6 +96,8 @@ svg {
   overflow: hidden;
   cursor: pointer;
   z-index: 0;
+  border: none;
+  font-weight: bold;
 }
 .button::before {
   content: "";
@@ -83,8 +122,16 @@ svg {
 }
 .button:hover svg,
 .button:hover a {
-  fill: black;
-  color: black;
+  fill: var(--txt-2);
+  color: var(--txt-2);
+}
+.button:visited::before {
+  height: 180%;
+}
+.button:visited svg,
+.button:visited a {
+  fill: var(--txt-2);
+  color: var(--txt-2);
 }
 /*--------------------------------------------------- SCROLL BAR*/
 body::-webkit-scrollbar {
