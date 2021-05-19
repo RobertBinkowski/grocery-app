@@ -1,0 +1,51 @@
+/*---------------------------------------Forms*/
+input,
+textarea {
+  outline: none;
+}
+input[type="submit"],
+input[type="button"] {
+  font-weight: bold;
+  color: var(--txt-1);
+  padding: 1em;
+}
+textarea {
+  resize: none;
+}
+input[type="text"],
+input[type="password"],
+textarea,
+select {
+  width: 20em;
+  border: none;
+  background-color: var(--acc-2);
+  color: var(--acc-1);
+  border-bottom: 4px solid var(--acc-2);
+  margin-left: 1em;
+  padding: 0.5em 2em 0.5em 2em;
+  border-radius: 0.3em;
+  font-weight: bold;
+  color: var(--acc-1);
+  background-color: var(--acc-2);
+}
+textarea::placeholder,
+input::placeholder {
+  font-weight: bold;
+  color: var(--acc-1);
+}
+textarea {
+  height: 4em;
+}
+input[type="text"]:focus,
+input[type="password"]:focus,
+textarea:focus {
+  transition: var(--tr-f);
+  border-bottom: 4px solid var(--acc-1);
+}
+form .button {
+  padding: 1em;
+}
+input[type="submit"]:hover {
+  transition: var(--tr-f);
+  color: var(--acc-1);
+}

@@ -2,52 +2,55 @@
 <html lang="en-UK">
 
 <head>
-    <?php include "Components/head.html"; ?>
+
+    <?php include "Components/head.php" ?>
 
     <title>Grocery App - Home</title>
 </head>
 
 <body>
-    <!-------------------------------------Nav-->
-    <?php include "Components/nav.html"; ?>
     <!------------------------------------------------------------Main-->
+    <div id="logIn">
+        <div class="button">
+            <a href="login.php">
+                <p>log In</p>
+            </a>
+        </div>
+        <div class="button">
+            <a href="register.php">
+                <p>Register</p>
+            </a>
+        </div>
+    </div>
     <main>
         <section class="main">
-
-            <img src="ICO/PICTURES/BreakdownSample.png" alt="spending breakdown">
-
-            <h2>Spending</h2>
-            <h3>Diary</h3>
-            <ul>
-                <li>Milk</li>
-                <li>Milk</li>
-            </ul>
-            <h3>Vegitables</h3>
-            <ul>
-                <li>Apple</li>
-                <li>Iphone</li>
-                <li>Ipad</li>
-                <li>iMac</li>
-            </ul>
-            <h3>Fruits</h3>
-            <ul>
-                <li>Potato</li>
-                <li>Potato</li>
-            </ul>
-            <h3>Other</h3>
-            <ul>
-                <li>Water</li>
-            </ul>
-
+            <h1>Grocery App</h1>
+            <p>Welcome to our Grocery App</p>
         </section>
     </main>
     <!-------------------------------Footer-->
-    <?php include "Components/footer.html"; ?>
+    <?php include "Components/footer.php"; ?>
     <script>
         if ('serverWorker' in navigator) {
             navigator.serviceWorker.register('JS/service-worker.js')
         }
     </script>
+    <style>
+        #logIn {
+            position: absolute;
+            right: 1em;
+            top: 1em;
+            display: flex;
+        }
+
+        #logIn div {
+            margin: .2em;
+        }
+
+        #logIn p {
+            margin: .5em;
+        }
+    </style>
 </body>
 
 </html>

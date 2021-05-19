@@ -12,7 +12,7 @@
   --bg-2: #666666;
 
   --acc-1: #0067ff;
-  --acc-2: white;
+  --acc-2: rgb(15, 14, 14);
 
   --tr-f: 0.3s;
   --tr-s: 0.7s;
@@ -30,7 +30,7 @@ body {
   background-color: var(--bg-1);
 }
 main {
-  min-height: 90vh;
+  min-height: 100vh;
 }
 section {
   max-width: 1000px;
@@ -44,20 +44,20 @@ a {
   color: var(--txt-1);
 }
 footer {
-  background: black;
+  background: var(--bg-2);
   border-top: 2px solid gray;
   padding: 1em;
   min-height: 10vh;
 }
 svg {
-  fill: white;
+  fill: var(--acc-2);
 }
 /*-------------------------------------------------*/
 #receipt-div {
   height: 25vh;
   overflow: hidden;
 }
-#receipt-div button {
+button {
   padding: 1em;
   font-weight: bold;
   border: none;
@@ -110,6 +110,13 @@ svg {
   z-index: -1;
   transition: var(--tr-s);
 }
+.red::before {
+  background: red;
+}
+.red:hover {
+  transition: var(--tr-f);
+  color: var(--acc-2);
+}
 .button:before {
   border-radius: 20% 20% 0 0;
 }
@@ -117,22 +124,87 @@ svg {
   height: 180%;
 }
 .button svg,
-.button a {
+.button a,
+.button:hover input[type="submit"],
+.button:hover input[type="button"] {
   transition: var(--tr-s);
 }
+.button:hover input[type="submit"],
+.button:hover input[type="button"] {
+  width: 100%;
+}
+.button,
 .button:hover svg,
-.button:hover a {
-  fill: var(--txt-2);
-  color: var(--txt-2);
+.button:hover a,
+.button:hover input[type="submit"],
+.button:hover input[type="button"] {
+  fill: var(--acc-1);
+  color: var(--acc-1);
 }
 .button:visited::before {
   height: 180%;
 }
+.button,
 .button:visited svg,
-.button:visited a {
-  fill: var(--txt-2);
-  color: var(--txt-2);
+.button:visited a,
+.button:visited input[type="submit"],
+.button:hover input[type="button"] {
+  fill: var(--acc-1);
+  color: var(--acc-1);
 }
+/* ----------------------------------Side*/
+.outcome {
+  display: block;
+}
+
+.result {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  overflow: hidden;
+  height: 1em;
+  padding-bottom: 10em;
+}
+
+.result div {
+  background-color: var(--acc-2);
+  width: 100%;
+  height: 1.25em;
+  padding: 0;
+  margin: 0;
+}
+.info {
+  position: relative;
+}
+.info > * {
+  position: absolute;
+  padding-left: 1em;
+}
+.info button {
+  right: 0;
+}
+.time {
+  top: 3em;
+  right: 1em;
+}
+.store_name {
+  top: 0em;
+  left: 0em;
+}
+
+.amount {
+  right: 5em;
+  top: 0em;
+}
+
+.result p {
+  margin: 0;
+}
+
+.img img {
+  height: 100%;
+}
+
 /*--------------------------------------------------- SCROLL BAR*/
 body::-webkit-scrollbar {
   width: 0.5rem;

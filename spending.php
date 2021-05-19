@@ -1,8 +1,15 @@
+<?php
+session_start();
+?>
 <!DOCTYPE HTML>
 <html lang="en-UK">
 
 <head>
-    <?php include "Components/head.html"; ?>
+    <?php
+    include "PHP/function.php";
+    check_session();
+    ?>
+    <?php include "Components/head.php"; ?>
 
     <title>Grocery App - Spedning</title>
 
@@ -10,28 +17,35 @@
 
 <body>
     <!-------------------------------------Nav-->
-    <?php include "Components/nav.html"; ?>
+    <?php include "Components/nav.php"; ?>
     <!------------------------------------------------------------Main-->
     <main>
         <section class="main">
-            <select>
-                <option>monthly</option>
-                <option>weekly</option>
-            </select>
-            <div id="result-div">
-                <p>Tesco</p>
-                <p>Milk</p>
-                <p>€10:80</p>
-            </div>
-            <div id="result-div">
-                <p>Tesco</p>
-                <p>Milk</p>
-                <p>€10:80</p>
-            </div>
+            <form method="post">
+                <select name="options">
+                    <option value="all">All</option>
+                    <option value="monthly">Monthly</option>
+                    <option value="weekly">Weekly</option>
+                </select>
+                <input type="submit" value="Search" class="button">
+            </form>
+            <br>
+            <?php
+            if (isset($_POST['options'])) {
+                $section = $_POST['options'];
+                if ($section == "all") {
+                    display_all();
+                } else if ($section == "monthly") {
+                    display_monthly();
+                } else if ($section == "weekly") {
+                    diplay_weekly();
+                }
+            }
+            ?>
         </section>
     </main>
     <!-------------------------------Footer-->
-    <?php include "Components/footer.html"; ?>
+    <?php include "Components/footer.php"; ?>
     <script>
         if ('serverWorker' in navigator) {
             navigator.serviceWorker.register('JS/service-worker.js')

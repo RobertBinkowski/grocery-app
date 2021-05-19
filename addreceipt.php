@@ -1,15 +1,22 @@
+<?php
+session_start();
+?>
 <!DOCTYPE HTML>
 <html lang="en-UK">
 
 <head>
-    <?php include "Components/head.html"; ?>
+    <?php
+    include "PHP/function.php";
+    check_session();
+    ?>
+    <?php include "Components/head.php"; ?>
 
     <title>Grocery App - Add Receipt</title>
 </head>
 
 <body>
     <!-------------------------------------Nav-->
-    <?php include "Components/nav.html"; ?>
+    <?php include "Components/nav.php"; ?>
     <!------------------------------------------------------------Main-->
     <div id="big-Pic-div" onclick="bigScreen()">
         <img src="" alt="picture" id="big-pic" onclick="bigScreen()">
@@ -62,7 +69,7 @@
         </section>
     </main>
     <!-------------------------------Footer-->
-    <?php include "Components/footer.html"; ?>
+    <?php include "Components/footer.php"; ?>
     <script>
         if ('serverWorker' in navigator) {
             navigator.serviceWorker.register('JS/service-worker.js')

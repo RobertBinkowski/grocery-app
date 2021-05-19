@@ -71,4 +71,14 @@
   #name {
     display: none;
   }
+  /*Rest*/
+  .result {
+    display: block;
+  }
+  .img {
+    height: 5em;
+  }
+  .img img {
+    background-color: red;
+  }
 }

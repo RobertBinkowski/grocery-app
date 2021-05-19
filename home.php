@@ -10,9 +10,8 @@ session_start();
     check_session();
     ?>
     <?php include "Components/head.php"; ?>
-
-    <title>Grocery App - Search</title>
-
+    <?php include "PHP/connector.php"; ?>
+    <title>Grocery App - Home</title>
 </head>
 
 <body>
@@ -21,14 +20,12 @@ session_start();
     <!------------------------------------------------------------Main-->
     <main>
         <section class="main">
-            <form action="" method="POST">
-                <input type="text" placeholder="Product / Store">
-                <input type="button" value="Search" class="button">
-            </form>
+
+            <img src="ICO/PICTURES/BreakdownSample.png" alt="spending breakdown">
+            <h2>Spending</h2>
             <?php
 
             ?>
-
 
         </section>
     </main>

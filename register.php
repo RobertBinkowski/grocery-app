@@ -1,34 +1,33 @@
 <?php
 session_start();
+if (isset($_SESSION['id'])) {
+    header("Location: home.php");
+}
 ?>
 <!DOCTYPE HTML>
 <html lang="en-UK">
 
 <head>
-    <?php
-    include "PHP/function.php";
-    check_session();
-    ?>
     <?php include "Components/head.php"; ?>
+    <?php include "PHP/signUp.php" ?>
 
-    <title>Grocery App - Search</title>
-
+    <title>Grocery App - Home</title>
 </head>
 
 <body>
     <!-------------------------------------Nav-->
-    <?php include "Components/nav.php"; ?>
     <!------------------------------------------------------------Main-->
     <main>
-        <section class="main">
-            <form action="" method="POST">
-                <input type="text" placeholder="Product / Store">
-                <input type="button" value="Search" class="button">
+        <section class="login">
+
+            <form method="POST">
+                <label for="username">Username</label>
+                <input type="text" id="username"><br>
+                <label for="password">Password</label>
+                <input type="password" id="password"><br>
+                <input type="submit" value="log in" class="button">
+                <input type="button" value="sign up" class="button">
             </form>
-            <?php
-
-            ?>
-
 
         </section>
     </main>
