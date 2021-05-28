@@ -1,17 +1,17 @@
 <?php
-session_start();
 
-include("connection.php");
-include("functions.php");
+include("connector.php");
+include("function.php");
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
-    //smth was posted
-    $user_name = $_POST['user_name'];
+    $name = $_POST['name'];
+    $address = $_POST['address'];
+    $username = $_POST['username'];
     $password = $_POST['password'];
 
-    if (!empty($user_name) && !empty($password)) {
-        $mysql_query =  $db_connection->prepare("select * from users where user_name = ?");
-        $mysql_query->bind_param("s", $user_name);
+    if (!empty($username) && !empty($password)) {
+        $mysql_query =  $con->prepare("SELECT * FROM `user` WHERE `username` = ?");
+        $mysql_query->bind_param("s", $username);
         $mysql_query->execute();
 
         $resultSet = $mysql_query->get_result();
@@ -19,15 +19,14 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         if ($resultSet->num_rows > 0) {
             echo "Username taken!";
         } else {
-            //save to database
-            $query = $db_connection->prepare("insert into users (user_name, password) values (?, ?)");
-            $query->bind_param("ss", $user_name, $password);
+            $query = $con->prepare("INSERT INTO user ( username, password, name, address) values (?,?,?,?)");
+            $query->bind_param("ssss", $username, $password, $name, $address);
             $query->execute();
-
+            prompt("User Created");
             header("Location: login.php");
             die;
         }
     } else {
-        echo "Please enter valid information!";
+        prompt("Creation Failed");
     }
 }

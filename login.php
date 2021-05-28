@@ -35,6 +35,11 @@ if (isset($_SESSION['id'])) {
                         <p>Register</p>
                     </a>
                 </div>
+                <div class="button">
+                    <a href="index.php">
+                        <p>Back</p>
+                    </a>
+                </div>
             </form>
         </section>
     </main>

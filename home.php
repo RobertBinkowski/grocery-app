@@ -21,10 +21,38 @@ session_start();
     <main>
         <section class="main">
 
-            <img src="ICO/PICTURES/BreakdownSample.png" alt="spending breakdown">
             <h2>Spending</h2>
             <?php
-
+            $q = mysqli_query($con, "SELECT * FROM `category` WHERE `category`.`userID` = $_SESSION[id]");
+            if (isset($q)) {
+                echo "<div class='categories'>";
+                while ($row = $q->fetch_array()) {
+                    echo "<div class='category'>";
+                    echo "<p class='left'><strong>$row[1]</strong></p>";
+                    echo "<p class='right'>€$row[2]/€$row[3]</p>";
+                    echo "<progress min='0' value='$row[2]' max='$row[3]'></progress>";
+                    ////echo "</div><div class='category'>";
+                    //// $prod = mysqli_query($con, "SELECT * FROM `product` WHERE `product`.`userID` = $_SESSION[id]");
+                    //// if (isset($prod)) {
+                    ////     echo "<div class='sub-category'><ol>";
+                    ////     while ($pr = $prod->fetch_array()) {
+                    ////         echo "<li><p class='left'>$pr[2]</p>";
+                    ////         echo "<p class='right'>Spending: $pr[4]</p></li>";
+                    ////     }
+                    ////     echo "</ol></div>";
+                    //// } else {
+                    ////     echo "<div class='sub-category'>";
+                    ////     echo "<strong>No Data Found</strong>";
+                    ////    echo "</div>";
+                    //// }
+                    echo "</div>";
+                }
+                echo "</div>";
+            } else {
+                echo "<div class='category'>";
+                echo "<strong>No Data Found</strong>";
+                echo "</div>";
+            }
             ?>
 
         </section>

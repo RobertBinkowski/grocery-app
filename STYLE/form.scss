@@ -1,0 +1,64 @@
+/*---------------------------------------Forms*/
+form {
+  font-weight: bold;
+}
+form .button {
+  padding: 1em;
+}
+input,
+textarea {
+  outline: none;
+}
+input[type="submit"],
+input[type="button"] {
+  font-weight: bold;
+  color: var(--txt-1);
+  padding: 1em;
+}
+textarea {
+  resize: none;
+}
+input[type="text"],
+input[type="password"],
+input[type="doubleval"],
+input[type="number"],
+input[type="date"],
+input[type="file"],
+textarea,
+select {
+  width: 20em;
+  border: none;
+  background-color: var(--acc-2);
+  color: var(--acc-1);
+  border-bottom: 4px solid var(--acc-2);
+  padding: 0.5em 1em 0.5em 1em;
+  border-radius: 0.3em;
+  font-weight: bold;
+  color: var(--acc-1);
+  background-color: var(--acc-2);
+}
+textarea::placeholder,
+input::placeholder {
+  font-weight: bold;
+  color: var(--acc-1);
+}
+textarea {
+  height: 4em;
+}
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="doubleval"]:focus,
+input[type="doubleval"]:focus,
+input[type="date"]:focus,
+input[type="file"]:focus,
+textarea:focus {
+  transition: var(--tr-f);
+  border-bottom: 4px solid var(--acc-1);
+}
+input[type="submit"]:hover {
+  transition: var(--tr-f);
+  color: var(--acc-1);
+}
+.data {
+  padding-top: 1em;
+}

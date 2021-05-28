@@ -1,0 +1,223 @@
+/*
+
+                ROOT FILE FOR A WEBSITE
+
+*/
+/*-------------------------------------------------------- ROOT*/
+:root {
+  --txt-1: white;
+  --txt-2: black;
+
+  --bg-1: #323232;
+  --bg-2: #666666;
+
+  --acc-1: #0067ff;
+  --acc-2: rgb(36, 34, 34);
+
+  --tr-f: 0.3s;
+  --tr-s: 0.7s;
+}
+/*-------------------------------------------------- HTML + BODY*/
+html,
+body {
+  font-family: "Comfortaa", cursive;
+  font-family: "Baloo Da 2", cursive;
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+  color: var(--txt-1);
+  text-align: center;
+  background-color: var(--bg-1);
+}
+main {
+  min-height: 100vh;
+}
+section {
+  max-width: 1000px;
+  margin: auto;
+  background-color: var(--bg-2);
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+a {
+  text-decoration: none;
+  color: var(--txt-1);
+}
+footer {
+  background: var(--bg-2);
+  border-top: 2px solid gray;
+  padding: 1em;
+  min-height: 10vh;
+}
+svg {
+  fill: var(--acc-2);
+}
+/*-------------------------------------------------*/
+#receipt-div {
+  min-height: 25vh;
+  overflow: hidden;
+}
+button {
+  padding: 1em;
+  font-weight: bold;
+  border: none;
+  z-index: 1;
+}
+#receipt {
+  object-fit: cover;
+  overflow: hidden;
+  width: 100vw;
+  object-position: top;
+  height: 20vh;
+}
+#big-pic {
+  position: fixed;
+  z-index: 3;
+  overflow: hidden;
+  visibility: hidden;
+  left: 0;
+  height: 100vh;
+  top: 0;
+}
+#big-pic img {
+  height: 100%;
+  width: auto;
+  background-repeat: no-repeat;
+  background-size: auto;
+}
+/*------------------------------User*/
+#user {
+  height: 10em;
+}
+/*------------------------------------------------------ BUTTON */
+.button {
+  position: relative;
+  background: none;
+  overflow: hidden;
+  cursor: pointer;
+  z-index: 0;
+  border: none;
+  font-weight: bold;
+}
+.button::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  background: var(--acc-2);
+  z-index: -1;
+  transition: var(--tr-s);
+}
+.red::before {
+  background: rgb(204, 61, 61);
+}
+.red:hover {
+  transition: var(--tr-f);
+  font-weight: bold;
+  color: white;
+}
+.button:before {
+  border-radius: 20% 20% 0 0;
+}
+.button:hover::before {
+  height: 180%;
+}
+.button:hover,
+.button:hover svg,
+.button:hover a,
+.button:hover input[type="submit"],
+.button:hover input[type="button"] {
+  transition: var(--tr-s);
+}
+.button:hover input[type="submit"],
+.button:hover input[type="button"] {
+  width: 100%;
+}
+.button,
+.button:hover svg,
+.button:hover a,
+.button:hover input[type="submit"],
+.button:hover input[type="button"] {
+  fill: var(--acc-1);
+  color: var(--acc-1);
+}
+.button:visited::before {
+  height: 180%;
+}
+.button,
+.button:visited svg,
+.button:visited a,
+.button:visited input[type="submit"],
+.button:hover input[type="button"] {
+  fill: var(--acc-1);
+  color: var(--acc-1);
+}
+/* ----------------------------------Side*/
+.outcome {
+  display: block;
+}
+
+.result {
+  margin: 0;
+  padding: 0;
+}
+
+.result div {
+  background-color: var(--acc-2);
+  /* height: 1.25em; */
+  padding: 0;
+  margin: 0;
+}
+.info {
+  /* position: relative; */
+}
+.info > * {
+  /*position: absolute;*/
+  padding-left: 1em;
+}
+.info button {
+  right: 0;
+}
+.time {
+  top: 3em;
+  right: 1em;
+}
+.store_name {
+  top: 0em;
+  left: 0em;
+}
+
+.amount {
+  right: 5em;
+  top: 0em;
+}
+
+.result p {
+  margin: 0;
+}
+
+.img img {
+  height: 100%;
+}
+/*------------------------------------------------------- Category */
+.category {
+  background-color: var(--acc-2);
+  padding: 1em;
+}
+progress {
+  width: 100%;
+}
+/*--------------------------------------------------- SCROLL BAR*/
+body::-webkit-scrollbar {
+  width: 0.5rem;
+}
+body::-webkit-scrollbar-track {
+  background: var(--bg-1);
+  overflow: hidden;
+}
+body::-webkit-scrollbar-thumb {
+  background: var(--acc-1);
+  border-radius: 3px;
+}

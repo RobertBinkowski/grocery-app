@@ -21,12 +21,15 @@ session_start();
     <!------------------------------------------------------------Main-->
     <main>
         <section class="main">
-            <form action="" method="POST">
-                <input type="text" placeholder="Product / Store">
-                <input type="button" value="Search" class="button">
+            <form method="POST">
+                <input type="text" name="search" placeholder="Store">
+                <input type="submit" value="Search" class="button">
             </form>
             <?php
-
+            if (isset($_POST['search'])) {
+                $data = $_POST['search'];
+                display_search($data);
+            }
             ?>
 
 

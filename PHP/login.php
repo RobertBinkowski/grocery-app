@@ -32,8 +32,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                     header("Location: home.php");
                     die;
                 }
-            } else {
-                prompt("Account Does not Exist");
             }
         }
 

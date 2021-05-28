@@ -27,7 +27,7 @@ session_start();
                     <option value="monthly">Monthly</option>
                     <option value="weekly">Weekly</option>
                 </select>
-                <input type="submit" value="Search" class="button">
+                <input type="submit" value="Display" class="button">
             </form>
             <br>
             <?php

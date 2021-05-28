@@ -25,25 +25,78 @@ session_start();
                 <path d="M6,19c0,1,2.25,2,6,2c3.518,0,6-1,6-2c0-2-2.354-4-6-4C8.25,15,6,17,6,19z" />
             </svg>
             <h1>Hello <?php echo $_SESSION['name'] ?></h1>
-            <form method="POST" action="/PHP/function.php">
-                <label>Name</label><br>
-                <input type="text" placeholder="<?php echo $_SESSION['name'] ?>"><br>
-                <label>Address</label><br>
-                <textarea placeholder="<?php echo $_SESSION['address'] ?>"></textarea>
-                <h3>Chanege Password</h3>
-                <input type="password" placeholder="Password"><br>
-                <input type="password" placeholder="Confirm Password">
+            <form method="POST">
+                <label for="name">Name</label><br>
+                <input type="text" name="name" required value="<?php echo $_SESSION['name'] ?>"><br>
+                <label for="address">Address</label><br>
+                <textarea required name="address"><?php echo $_SESSION['address'] ?></textarea>
+                <h3>Change Password</h3>
+                <input type="password" name="pass" placeholder="Password"><br>
+                <input type="password" name="confPass" placeholder="Confirm Password">
                 <br><br>
                 <div class="button">
-                    <input type="button" name="save" class="button" value="Save">
+                    <input type="submit" name="button" class="button" value="Save">
                 </div>
                 <div class="button">
-                    <input type="button" name="log_out" class="button" value="Log Out">
+                    <input type="submit" name="button" class="button" value="Log Out">
                 </div>
                 <div class="button red">
-                    <input type="button" name="delete_account" class="button" value="Delete Account">
+                    <input type="submit" id="red" name="button" class="button" value="Delete Account">
                 </div>
             </form>
+            <?php
+            if (isset($_POST['button'])) {
+                $actions = $_POST['button'];
+                if ($actions == "Save") {
+                    include("PHP/connector.php");
+                    $pass = $_POST['pass'];
+                    $confPass = $_POST['confPass'];
+                    $name = $_POST['name'];
+                    $address = $_POST['address'];
+
+                    if ($pass == $confPass) {
+                        if ($pass != '') {
+                            $update = "UPDATE `user` SET `password` = '$pass' WHERE `user`.`ID` = $_SESSION[id];";
+                            if ($con->query($update)) {
+                                prompt("Updated");
+                                header("Location: user.php");
+                            } else {
+                                prompt("Failed to update Password");
+                            }
+                        }
+                    } else {
+                        prompt("Ensure Password and Confirm password are the same!");
+                    }
+                    $update = "UPDATE `user` SET `name` = '$name' WHERE `user`.`ID` = $_SESSION[id];";
+                    if ($con->query($update) === TRUE) {
+                        prompt("Updated");
+                        die;
+                    } else {
+                        prompt("Failed to update Name");
+                    }
+                    $update = "UPDATE `user` SET `address` = '$address' WHERE `user`.`ID` = $_SESSION[id];";
+                    if ($con->query($update) === TRUE) {
+                        prompt("Updated");
+                        die;
+                    } else {
+                        prompt("Failed to update Address");
+                    }
+
+                    //prompt("Please make sure Password and Confirm Password are the same");
+                } else if ($actions == "Log Out") {
+                    end_session();
+                } else if ($actions == "Delete Account") {
+                    include("PHP/connector.php");
+                    $update = "UPDATE `user` SET `disabled` = '1' WHERE `user`.`ID` = $_SESSION[id];";
+                    if ($con->query($update) === TRUE) {
+                        prompt("Sad to see you go");
+                        end_session();
+                    } else {
+                        prompt("Could Not Delete");
+                    }
+                }
+            }
+            ?>
         </section>
     </main>
     <!-------------------------------Footer-->
